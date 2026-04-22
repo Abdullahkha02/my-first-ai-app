@@ -5,11 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "anthropic>=0.96.0",
-    "django>=6.0.4",
-    "django-ninja>=1.6.2",
-    "pydantic>=2.13.3",
-    "python-decouple>=3.8",
+    "django",
+    "django-ninja",
+    "anthropic",
 ]
 
 [dependency-groups]
