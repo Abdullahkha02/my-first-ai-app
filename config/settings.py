@@ -9,10 +9,14 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
+import os
 
 from pathlib import Path
 from decouple import config
 
+
+# This looks for the Railway variable, or defaults to an empty list if not found
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=lambda v: [s.strip() for s in v.split(",")])
@@ -29,7 +33,7 @@ SECRET_KEY = "django-insecure-dwlo+1mi8#v#*k%c!)%+g_xcba)+8ur-s@fcork^#=zk598znx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
